@@ -496,12 +496,17 @@ hr.hr-heading {
 	overflow: hidden;
 	padding-top: 7rem;
 	padding-bottom: 7rem;
-	background-color: var(--main-bg-color);
+	background-image: url("../images/header-background.png");
 	text-align: center;
 }
 
+.action-image {
+	width: 100%;
+}
+
 .logo-image {
-	height: 50vh;
+	width: 80vw;
+	margin-bottom: 50px;
 }
 
 .header div[class*="col"] {

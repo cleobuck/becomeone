@@ -15,27 +15,54 @@
 	<body>
 		<svg id="my-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
 			<path
-				id="my-path"
+				id="path1"
 				fill="none"
 				stroke="#000"
 				stroke-width="2"
-				d="M50,150 100,200 200,100 300,200 350,150"
+				d="M50,150 100,200"
+			/>
+			<path
+				id="path2"
+				fill="none"
+				stroke="#000"
+				stroke-width="2"
+				d="M100,200 200,100"
+			/>
+			<path
+				id="path3"
+				fill="none"
+				stroke="#000"
+				stroke-width="2"
+				d="M200,100 300,200"
+			/>
+			<path
+				id="path4"
+				fill="none"
+				stroke="#000"
+				stroke-width="2"
+				d="M300,200 350,150"
 			/>
 		</svg>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.4/vivus.min.js"></script>
 		<script>
-			var mySvg = document.getElementById("my-svg");
-			var myPath = document.getElementById("my-path");
+			var paths = ["path1", "path2", "path3", "path4"];
+			var currentIndex = 0;
 
-			var vivus = new Vivus("my-svg", {
-				type: "delayed",
-				duration: 200,
-				start: "autostart",
-				pathTimingFunction: Vivus.EASE,
-			});
+			function drawNextPath() {
+				if (currentIndex < paths.length) {
+					new Vivus(paths[currentIndex], {
+						type: "delayed",
+						duration: 200,
+						start: "autostart",
+						pathTimingFunction: Vivus.EASE,
+					});
 
-			vivus.play();
+					currentIndex++;
+				}
+			}
+
+			drawNextPath();
 		</script>
 	</body>
 </html>

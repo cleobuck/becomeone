@@ -40,6 +40,13 @@ Colors:
 	--main-bg-color: #00a9df;
 }
 
+nav {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	margin: 0 auto;
+	gap: 10px;
+}
 body,
 html {
 	width: 100%;

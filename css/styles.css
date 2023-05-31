@@ -500,14 +500,30 @@ hr.hr-heading {
 	text-align: center;
 }
 
+.background-video {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	min-width: 100%;
+
+	min-height: 100%;
+}
+
 .action-image {
 	width: 100%;
 }
 
 .logo-image {
 	width: 80vw;
+	max-width: 500px;
 	margin-bottom: 50px;
 }
+
+/* @media only screen and (min-width: 600px) {
+	.logo-image {
+		width: 500px;
+	}
+} */
 
 .header div[class*="col"] {
 	/* selects all elements which have classes starting with col */

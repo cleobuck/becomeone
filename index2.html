@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SVG Animation with Vivus</title>
+		<style>
+			svg {
+				width: 400px;
+				height: 300px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<svg id="my-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+			<path
+				id="my-path"
+				fill="none"
+				stroke="#000"
+				stroke-width="2"
+				d="M50,150 100,200 200,100 300,200 350,150"
+			/>
+		</svg>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.4/vivus.min.js"></script>
+		<script>
+			var mySvg = document.getElementById("my-svg");
+			var myPath = document.getElementById("my-path");
+
+			var vivus = new Vivus("my-svg", {
+				type: "delayed",
+				duration: 200,
+				start: "autostart",
+				pathTimingFunction: Vivus.EASE,
+			});
+
+			vivus.play();
+		</script>
+	</body>
+</html>

@@ -1,68 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SVG Animation with Vivus</title>
-		<style>
-			svg {
-				width: 400px;
-				height: 300px;
-				border: 1px solid #000;
-			}
-		</style>
+		<title>Animated SVG with Vivus.js</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.5/vivus.min.js"></script>
 	</head>
 	<body>
-		<svg id="my-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
-			<path
-				id="path1"
-				fill="none"
-				stroke="#000"
-				stroke-width="2"
-				d="M50,150 100,200"
-			/>
-			<path
-				id="path2"
-				fill="none"
-				stroke="#000"
-				stroke-width="2"
-				d="M100,200 200,100"
-			/>
-			<path
-				id="path3"
-				fill="none"
-				stroke="#000"
-				stroke-width="2"
-				d="M200,100 300,200"
-			/>
-			<path
-				id="path4"
-				fill="none"
-				stroke="#000"
-				stroke-width="2"
-				d="M300,200 350,150"
-			/>
-		</svg>
+		<svg id="my-svg" width="400" height="400"></svg>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.4/vivus.min.js"></script>
 		<script>
-			var paths = ["path1", "path2", "path3", "path4"];
-			var currentIndex = 0;
+			const svgElement = document.getElementById("my-svg");
+			// const svgPath =
+			// 	'<path d="M50,50 L150,150 L250,50 L350,150" stroke="#000" fill="none"/>';
 
-			function drawNextPath() {
-				if (currentIndex < paths.length) {
-					new Vivus(paths[currentIndex], {
-						type: "delayed",
-						duration: 200,
-						start: "autostart",
-						pathTimingFunction: Vivus.EASE,
-					});
+			const svgPath = ` <path d="M 11.291 -20.37 Q 13.968 -20.37 15.35 -19.061 Q 16.733 -17.751 16.733 -15.248 Q 16.733 -13.939 16.107 -12.877 Q 15.481 -11.815 14.274 -11.204 Q 13.066 -10.592 11.262 -10.563 L 11.32 -11.64 Q 12.28 -11.64 13.401 -11.378 Q 14.521 -11.116 15.51 -10.476 Q 16.5 -9.836 17.14 -8.745 Q 17.78 -7.653 17.78 -6.024 Q 17.78 -4.249 17.198 -3.07 Q 16.616 -1.892 15.656 -1.222 Q 14.696 -0.553 13.546 -0.276 Q 12.397 0 11.291 0 L 3.841 0 Q 3.23 0 2.794 -0.422 Q 2.357 -0.844 2.357 -1.484 L 2.357 -18.886 Q 2.357 -19.526 2.794 -19.948 Q 3.23 -20.37 3.841 -20.37 Z M 10.883 -17.518 L 5.151 -17.518 L 5.5 -17.984 L 5.5 -11.727 L 5.18 -12.047 L 10.942 -12.047 Q 11.989 -12.077 12.789 -12.76 Q 13.59 -13.444 13.59 -14.783 Q 13.59 -16.151 12.862 -16.834 Q 12.135 -17.518 10.883 -17.518 Z M 11.087 -9.196 L 5.296 -9.196 L 5.5 -9.399 L 5.5 -2.532 L 5.267 -2.794 L 11.262 -2.794 Q 12.775 -2.794 13.706 -3.594 Q 14.637 -4.394 14.637 -6.024 Q 14.637 -7.391 14.084 -8.061 Q 13.532 -8.73 12.717 -8.963 Q 11.902 -9.196 11.087 -9.196 Z" transform="matrix(0.194748, -0.980853, 0.980853, 0.194748, 155.107117, 175.251862)" style="fill: rgb(207, 229, 248); line-height: 46.624px; white-space: pre;"/>`;
 
-					currentIndex++;
-				}
-			}
+			svgElement.innerHTML = svgPath;
 
-			drawNextPath();
+			const vivusOptions = {
+				type: "delayed",
+				duration: 200,
+				start: "autostart",
+				pathTimingFunction: Vivus.EASE,
+				animTimingFunction: Vivus.EASE_IN,
+			};
+
+			const vivus = new Vivus(svgElement, vivusOptions, () => {
+				console.log("Animation completed");
+			});
 		</script>
 	</body>
 </html>

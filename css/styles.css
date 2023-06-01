@@ -53,12 +53,7 @@ Colors:
 	align-items: center;
 	/* margin-top: 50px; */
 	width: 100%;
-	flex-direction: column;
-}
-
-.header-content svg {
-	width: 80%;
-	max-width: 500px;
+	flex-direction: column-reverse;
 }
 
 .unum-video {
@@ -72,6 +67,7 @@ nav {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	margin-top: 50px;
 }
 
 @media (min-width: 768px) {
@@ -538,6 +534,10 @@ hr.hr-heading {
 	padding-bottom: 7rem;
 	background-image: url("../images/header-background.png");
 	text-align: center;
+}
+
+.header-path {
+	fill: white !important;
 }
 
 .video-wrapper {

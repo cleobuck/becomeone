@@ -556,7 +556,7 @@ hr.hr-heading {
 .background-video {
 	position: absolute;
 	bottom: 0;
-	left: 0;
+	left: -10px;
 	min-width: 130%;
 
 	min-height: 100%;
